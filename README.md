@@ -1,2 +1,2 @@
 # ZADANIA-PRG
-Zadanie 2
+Zadania
