@@ -1,189 +1,122 @@
 #include <iostream>
 using namespace std;
 
-int N; int W; int K; int R; int Q; int Z;
-int a; int b; int k = 1; int L = 1; int l;
-
 int main(void)
 {
-
-	cout << "ZADANIE 2.1:" << endl; cout << endl;
-	cout << "wprowadz liczbe z ktorej utworzysz szeregi" << endl; cout << endl;
-	cin >> N; cout << endl;
-	if (N <= 0)
+	cout << "Zadanie 4.1" << endl;
+	cout << "wpisz liczbe dlugosci rzedu (do 100)" << endl;
+	unsigned int i;
+	int k;
+	int j;
+	int l = 0;
+	cin >> i;
+	int tab[100];
+	for (j = 0; j < i; j++)
 	{
-		cout << "z tej liczby nie utworzy sie szeregu" << endl;
+		cout << "wpisz liczbe ktora bedzie lezaza w " << j << " rzedzie tablicy ";
+		cin >> k;
+		tab[j] = k;
 	}
-	else
+	cout << "twoja tablica o dlugosci " << i << " posiada liczby:" << endl << endl;
+	for (j = 0; j < i; j++)
 	{
-		for (W = 1; N >= W; W++)
+
+		cout << tab[j] << " ";
+		if (tab[j] > l)
 		{
-
-			Q = Z;
-			cout << "szereg: " << W << endl;
-
-			R = 0;
-
-			for (K = 1; W >= K; K++)
-			{
-				cout << K << " ";
-				R = R + K;
-
-			}
-
-			cout << endl;
-			cout << "suma szeregu rowna sie: " << R << endl; cout << endl;
-			Z = Q + R;
+			l = tab[j];
 		}
-		cout << "suma liczb w szeregach rowna sie: " << Z << endl; cout << endl;
+
 	}
 
+	cout << endl << endl << "najwieksza liczba w tablicy jest: " << l << endl << endl;
 
+	cout << "Zadanie 4.2" << endl;
+	cout << "wpisz dlugosc tablicy do 100" << endl;
+	unsigned int I; int L; int L1; int LW = 0; int Lw = 0; int lw = 0;
+	cin >> I;
+	int tab2[100];
+	for (j = 0; j < I; j++)
 	{
+		cout << "wpisz liczbe ktora lezy w " << j << "rzedzie tablicy ";
+		cin >> k;
+		tab2[j] = k;
+	}
+	cout << "twoja tablica o dlugosci " << I << " posiada liczby:" << endl << endl;
+	for (j = 0; j < I; j++)
+	{
+		cout << tab2[j] << " ";
+	}
 
-		cout << "ZADANIE 2.2:" << endl; cout << endl;
-		cout << "wprowadz wartosc a" << endl;
-		cout << "a == "; cin >> a; cout << endl;
-		cout << "wprowadz wartosc b" << endl;
-		cout << "b == "; cin >> b; cout << endl;
-
-		if (a <= 0 & b <= 0)
+	for (L = 0; L < I; L++)
+	{
+		LW = 0;
+		for (L1 = 0; L1 < I; L1++)
 		{
-			cout << "wprowadz liczby dodatnie calkowite" << endl;
+			if (tab2[L] == tab2[L1])
+			{
+				LW++;
+			}
 		}
-		else
+
+		if (LW > Lw)
 		{
-			cout << "wiersz o dlugosci a\n";
-			for (k; a >= k; k++)
-			{
-				cout << "*";
-			}
-			cout << endl; cout << endl;
+			Lw = LW;
+			lw = tab2[L];
+		}
+	}
+	cout << endl << "liczba najczesciej sie powtarzajaca w tablicy jest " << lw << " powtarzajace sie " << Lw << " razy" << endl;
 
-			cout << "kolumna o dlugosci b\n";
-			for (L; b >= L; L++)
+	cout << endl << "Zadanie 4.3" << endl;
+	int tab3[10][10];
+	int kol; int wier; int k1;
+	for (kol = 0; kol < 10; kol++)
+	{
+		for (wier = 0;wier < 10;)
+		{
+			while (wier == 0)
 			{
-				cout << "*\n";
+				tab3[kol][wier] = kol;
+				k1 = kol;
+				cout << tab3[kol][wier] << " ";
+				wier++;
 			}
-			cout << endl; cout << endl;
-			cout << "prostokat z gwiazdek o dlugosci a=" << a << " i wysokosci b=" << b << endl;
-			for (L = 1; b >= L; L++)
+			while (wier == 1)
 			{
-				for (k = 1; a >= k; k++)
-				{
-					cout << "*";
-				}
-				cout << endl;
+				tab3[kol][wier] = k1 + k1;
+				cout << tab3[kol][wier] << " ";
+				wier++;
 			}
+			while (wier == 2)
+			{
+				tab3[kol][wier] = k1 * k1;
+				cout << tab3[kol][wier] << " ";
+				wier++;
+			}
+			while (wier == 3)
+			{
+				tab3[kol][wier] = wier + kol;
+				cout << tab3[kol][wier] << " ";
+				wier++;
+			}
+			while (wier == 4)
+			{
+				tab3[kol][wier] = wier - kol;
+				cout << tab3[kol][wier] << " ";
+				wier++;
+			}
+			while (wier < 10)
+			{
+				tab3[kol][wier] = 0;
+				cout << tab3[kol][wier] << " ";
+				wier++;
+			}
+			
+
 			cout << endl;
 
-			cout << "obwod z gwiazdek o dlugosci a=" << a << " i wysokosci b=" << b << endl;
-			for (L = 1; b >= L; L++)
-			{
-				for (k = 1; a >= k; k++)
-				{
-					if (k == 1 || k == a)
-					{
-						cout << "*";
-					}
-					else
-					{
-						if (L > 1 & L < b)
-						{
-							cout << " ";
-						}
-						else
-						{
-							cout << "*";
-						}
-					}
-				}
-				cout << endl;
-			}
-
-			cout << "trojkat prostokatny rownoramienny z przyprostokatna po lewej i na dole o dlugosci a=" << a << endl;
-
-			for (L = 1;L <= a; L++)
-			{
-				for (k = 1; k <= a; k++)
-				{
-					if (k <= L)
-					{
-						cout << "*";
-					}
-					else
-					{
-						cout << " ";
-					}
-				}
-				cout << endl;
-			}
-			cout << endl;
-
-			cout << "trojkat prostokatny rownoramienny odwrocony do poprzedniego o dlugosci przyp. a=" << a << endl;
-
-			for (L = 1; L <= a; L++)
-			{
-				for (k = 1; k <= a; k++)
-				{
-					if (k < L)
-					{
-						cout << " ";
-					}
-					else
-					{
-						cout << "*";
-					}
-				}
-				cout << endl;
-			}
 		}
 	}
 
-	cout << "Zadanie 2.3:" << endl;
-	int mies;
-	cout << "podaj liczbe od 1 - 12" << endl;
-	cin >> mies;
-	switch (mies)
-	{
-	case 1:
-		cout << "styczen\n31dni\npochmurno\n";
-		break;
-	case 2:
-		cout << "luty\n28dni\npochmurno";
-		break;
-	case 3:
-		cout << "marzec\n31dni\npochmurno";
-		break;
-	case 4:
-		cout << "kwiecien\n30dni\nslonecznie";
-		break;
-	case 5:
-		cout << "maj\n31dni\nslonecznie";
-		break;
-	case 6:
-		cout << "czerwiec\n30dni\nslonecznie";
-		break;
-	case 7:
-		cout << "lipiec\n31dni\nslonecznie";
-		break;
-	case 8:
-		cout << "sierpien\n31dni\nslonecznie";
-		break;
-	case 9:
-		cout << "wrzesien\n30dni\nslonecznie";
-		break;
-	case 10:
-		cout << "pazdziernik\n31dni\npochmurno";
-		break;
-	case 11:
-		cout << "listopad\n30dni\npochmurno";
-		break;
-	case 12:
-		cout << "grundzien\n31dni\npochmurno";
-		break;
-	default:
-		cout << "liczba spoza zakresu, nie ma wiecej niz 12 miesiecy";
-	}
 	return 0;
 }
